@@ -1,0 +1,167 @@
+<mat-toolbar>
+    <mat-toolbar-row fxLayout="row">
+      <span>Event Templates</span>
+      <span fxFlex="100%"></span>
+      <button
+        [matMenuTriggerFor]="menu"
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon>settings</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <mat-list>
+          <div mat-subheader>Settings</div>
+        </mat-list>
+        <button mat-menu-item matTooltip="Info about the action">
+          <mat-slide-toggle>Chapters must use templates</mat-slide-toggle>
+        </button>
+        <button
+          mat-menu-item
+          matTooltip="Info about the action"
+          matTooltipPosition="after"
+        >
+          <mat-slide-toggle>New events must be requested</mat-slide-toggle>
+        </button>
+      </mat-menu>
+      <button
+        mat-icon-button
+        (click)="openDialog()"
+        class="example-icon"
+        aria-label="Example icon-button with share icon"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+<mat-tab-group color="accent">
+    <mat-tab label="Active">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+        <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <!-- <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container> -->
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="access">
+          <th mat-header-cell *matHeaderCellDef>Access</th>
+          <td mat-cell *matCellDef="let element">{{element.access}}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="lastModified">
+          <th mat-header-cell *matHeaderCellDef>Last Modified</th>
+          <td mat-cell *matCellDef="let element">{{element.lastModified}}</td>
+        </ng-container>
+        <ng-container matColumnDef="star" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef aria-label="row actions">
+            &nbsp;
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              [matMenuTriggerFor]="templateOptions"
+              mat-icon-button
+              #menuTrigger
+              aria-label="Example icon button with a heart icon"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #templateOptions="matMenu">
+              <mat-list>
+                <a routerLink="/template" mat-menu-item>
+                  Edit
+                </a>
+                <button mat-menu-item>Access</button>
+                <button mat-menu-item>Archive</button>
+              </mat-list>
+            </mat-menu>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          
+          mat-row
+          *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+      </table>
+    </mat-tab>
+    <mat-tab label="Archived">
+      <table mat-table [dataSource]="archivedTemplates" class="mat-elevation-z0">
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                            [aria-label]="checkboxLabel()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)"
+                            [aria-label]="checkboxLabel(row)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+        <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <!-- <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  </ng-container> -->
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="lastModified">
+          <th mat-header-cell *matHeaderCellDef>Date Archived</th>
+          <td mat-cell *matCellDef="let element">{{element.lastModified}}</td>
+        </ng-container>
+        <ng-container matColumnDef="star" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef aria-label="row actions">
+            &nbsp;
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              [matMenuTriggerFor]="templateOptions"
+              mat-icon-button
+              #menuTrigger
+              aria-label="Example icon button with a heart icon"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #templateOptions="matMenu">
+              <mat-list>
+                <button mat-menu-item>Restore</button>
+               
+              </mat-list>
+            </mat-menu>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="archivedColumns"></tr>
+        <tr mat-row (click)="selection.toggle(row)" *matRowDef="let row; columns: archivedColumns;sticky: true"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[20, 40, 60, 100]"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+    </mat-tab>
+  </mat-tab-group>

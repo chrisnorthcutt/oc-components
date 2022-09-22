@@ -1,0 +1,160 @@
+<mat-toolbar>
+  <mat-toolbar-row fxLayout="row" fxLayoutGap="16px">
+    <a routerLink="/template-list" mat-icon-button><mat-icon>arrow_back</mat-icon></a>
+    <span>Q2 2022 Golf Outing</span>
+    <span fxFlex="1 1 "></span>
+    <button
+      color="basic"
+      mat-flat-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      Save As
+    </button>
+
+    <button
+      color="primary"
+      mat-flat-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      Save
+      <mat-icon class="left">save</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<!-- <div class="container">
+    <button mat-stroked-button color="primary" (click)="exportHtml()">Export</button>
+    <email-editor
+      (loaded)="editorLoaded()"
+      (ready)="editorReady()"
+    ></email-editor>
+  </div> -->
+  
+<mat-accordion multi class="container">
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Site Setup </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+    </mat-expansion-panel-header>
+    <h2>Event Details</h2>
+    <p>
+      Event Type:
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="bold">In Person</mat-button-toggle>
+        <mat-button-toggle value="italic">Hybrid</mat-button-toggle>
+        <mat-button-toggle value="underline">Virtual</mat-button-toggle>
+      </mat-button-toggle-group>
+    </p>
+    <div fxLayout="column">
+      <mat-form-field>
+        <mat-label>Event Name</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Event Description</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>External ID</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+    <h2>Event Branding</h2>
+    <div fxLayout="column" fxLayoutGap="24px">
+      <div fxLayout="row" fxLayoutGap="24px">
+        <div fxLayout="column" fxFlex="60%">
+          <p class="mat-subheading-1">Primary Color</p>
+          <p>
+            This color will be applied to: buttons, progress bars, thermometer
+            and tabs. We recommend using a color with high contrast.
+          </p>
+        </div>
+        <div class="oc-color-picker">
+          <input
+            type="color"
+            #color="ngModel"
+            name="color"
+            value="{{ hex.value != '' ? hex.value : '#2E729F' }}"
+            ngModel
+          />
+          <input
+            #hex="ngModel"
+            name="hex"
+            type="text"
+            value="{{ color.value != '' ? color.value : '#2E729F' }}"
+            ngModel
+          />
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutGap="24px">
+        <div fxLayout="column" fxFlex="60%">
+          <p class="mat-subheading-1">Logo</p>
+          <p>
+            This logo will be shown on receipts coming from this event. If no
+            logo is uploaded, the logo from Organization Details will display on
+            receipts.
+          </p>
+        </div>
+        <div class="oc-image-picker">
+          <img class="oc-event-logo" src="{{ this.logoImg }}" alt="" />
+
+          <input
+            #logo
+            id="logo"
+            type="file"
+            name="logoImg"
+            accept="image/png, image/jpeg"
+            (change)="handleChange($event)"
+          />
+          <button mat-flat-button color="primary" (click)="logo.click()">
+            Upload File
+          </button>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutGap="24px">
+        <div fxLayout="column" fxFlex="60%">
+          <p class="mat-subheading-1">Header Image</p>
+          <p>
+            This image will be shown on the desktop event page header. If no
+            image is uploaded, your primary color will be used as a background.
+          </p>
+        </div>
+        <div class="oc-image-picker">
+          <img class="oc-event-logo" src="{{ this.headerImg }}" alt="" />
+
+          <input
+            #header
+            id="header"
+            type="file"
+            name="headerImg"
+            accept="image/png, image/jpeg"
+            (change)="handleChange($event)"
+          />
+          <button mat-flat-button color="primary" (click)="header.click()">
+            Upload File
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Fundraising </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Sponsors </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Messaging </mat-panel-title>
+      <mat-panel-description> </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,8 @@
+@use "@material/button/button.scss";
+@use "@material/chips/styles";
+@use "@material/banner/_banner.scss";
+@use "@material/card";
+
+@include card.core-styles;
+@include button.core-styles;
+@include banner.core-styles;

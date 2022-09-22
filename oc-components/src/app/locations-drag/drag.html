@@ -1,0 +1,12 @@
+<div
+cdkDropList
+[cdkDropListData]="locations"
+class="item-list"
+(cdkDropListDropped)="drop($event)"
+>
+<div class="item-box" *ngFor="let item of locations" cdkDrag>
+  <div class="item-placeholder" *cdkDragPlaceholder>{{item}}</div>
+  {{ item }}
+  <mat-icon>drag_handle</mat-icon>
+</div>
+</div>

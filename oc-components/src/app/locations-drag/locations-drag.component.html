@@ -1,0 +1,78 @@
+<div class="example-wrapper" cdkDropListGroup>
+  <div class="example-container">
+    <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="stretch" flex>
+      <h2>Locations</h2>
+      <mat-chip-list [selectable]="false"><mat-chip >{{locations.length}} Locations</mat-chip></mat-chip-list>
+      
+    </div>
+    <p>Select one or more locations and drag to a region</p>
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Search All Locations" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <div
+      cdkDropList
+      [cdkDropListData]="locations"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of locations" cdkDrag>
+        <div class="example-custom-placeholder" *cdkDragPlaceholder>{{item}}</div>
+        {{ item }}
+        <mat-icon>drag_handle</mat-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Regions</h2>
+    <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+    <div class="regions-accordion">
+    <mat-accordion multi >
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> West Region </mat-panel-title>
+          <mat-panel-description>
+            {{ west.length }} Locations
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div
+          cdkDropList
+          [cdkDropListData]="west"
+          class="example-list-regions example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div class="example-box" *ngFor="let item of west" cdkDrag>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder>{{item}}</div>
+            {{ item }}
+          </div>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> East Region </mat-panel-title>
+          <mat-panel-description>
+            {{ east.length }} Locations
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div
+          cdkDropList
+          [cdkDropListData]="east"
+          class="example-list-regions example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div class="example-box" *ngFor="let item of east" cdkDrag>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder>{{item}}</div>
+            {{ item }}
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>
+  </div>
+</div>
+
+<!-- Copyright 2022 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at https://angular.io/license -->

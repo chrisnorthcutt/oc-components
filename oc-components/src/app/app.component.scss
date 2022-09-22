@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@use "../styles.scss" as base;
+@include mat.core();
+.example-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar {
+  width: 256px;
+
+}
+
+.button {
+  background-color: white;
+}
+a.mat-list-item.mat-focus-indicator.button.activebutton {
+  background-color: mat.get-color-from-palette(base.$oc-teal, 50);
+
+  color: mat.get-color-from-palette(base.$oc-teal, 900) !important;
+}
