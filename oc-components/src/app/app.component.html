@@ -1,11 +1,4 @@
-<!-- <mat-toolbar color="primary">
-  <mat-toolbar-row fxLayout="row" fxLayoutGap="16px">
-    
-    <span>OneCause National</span>
-    <span fxFlex="1 1 "></span>
-   
-  </mat-toolbar-row>
-</mat-toolbar>
+
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer mode="side" opened class="sidebar docs-component-viewer-nav-content"
     ><mat-nav-list>
@@ -56,11 +49,30 @@
    ariaCurrentWhenActive="page">
   Locations Checklist
 </a>
+   <a mat-list-item class="button"
+   routerLink="/event-onboarding"
+   routerLinkActive="activebutton"
+   ariaCurrentWhenActive="page">
+  Event Onboarding
+</a>
     </mat-nav-list></mat-drawer
   >
   <mat-drawer-content class="container"><router-outlet ></router-outlet></mat-drawer-content>
-</mat-drawer-container> -->
+</mat-drawer-container>
 
-<header>My header</header>
-<router-outlet></router-outlet>
-<footer>My footer</footer>
+<!-- Optional nav for demonstration -->
+<!-- <div class="my-code-header">
+  <h2>This nav is from AppComponent:</h2>
+  <ul>
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/mystery">Mystery (no Builder page exists here)</a></li>
+  </ul>
+</div> -->
+
+
+<!-- You need router-outlet here -->
+<!-- <div class="main">
+  <h2>This section loads Builder pages unless page not found, in which case it loads the PageNotFoundComponent from the  Angular app.</h2>
+  <router-outlet></router-outlet> 
+</div> -->

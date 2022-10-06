@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MDCFoundation} from '@material/base/foundation';
-
+import { BuilderBlock } from '@builder.io/angular'
 import {MDCBannerAdapter} from '@material/banner/adapter';
 import {CloseReason, cssClasses, numbers} from '@material/banner/constants';
 
@@ -132,3 +132,14 @@ export class CheckboxComponent implements OnInit {
   }
 
 }
+
+BuilderBlock({
+  tag: 'app-custom-thing', // <-- use the component selector here
+  name: 'Custom thing',
+  inputs: [
+    {
+      name: 'text', // <-- this name matches the Angular @Input() above
+      type: 'string',
+    },
+  ],
+})(MDCBannerFoundation);

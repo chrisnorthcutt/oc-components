@@ -1,0 +1,57 @@
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <h1>Let's Get Started!</h1>
+    <p class="subheader-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro assumenda harum ratione, unde minima voluptate adipisci ad nesciunt.</p>
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Event Basics</ng-template>
+      <div fxLayout="column" fxLayoutGap="24px" fxLayoutAlign="start start">
+        <mat-form-field fxFlexFill="1">
+          <mat-label>Event Name</mat-label>
+          <input matInput formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div fxLayout="row"  fxFlexFill>
+        <mat-button-toggle-group fxLayoutAlign="space-evenly" fxFlexFill="1" fxLayout name="eventType" aria-label="Event Type">
+          <mat-button-toggle fxFlex="1 0 0" value="inPerson">In Person</mat-button-toggle>
+          <mat-button-toggle fxFlex="1 0 0" value="hybrid">Hybrid</mat-button-toggle>
+          <mat-button-toggle fxFlex="1 0 0" value="virtual">Virtual</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+        <mat-form-field fxFlexFill="1">
+          <mat-label>Event Venue</mat-label>
+          <input matInput placeholder="Search by Name or Address" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <input
+        id="pac-input"
+        class="controls"
+        type="text"
+        placeholder="Search Box"
+      />
+      </div>
+      
+      <div>
+        <button mat-stroked-button color="primary" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Options">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Options</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Summary</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

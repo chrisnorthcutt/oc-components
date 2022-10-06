@@ -1,0 +1,65 @@
+<div class="sponsor-game__wrapper">
+  <div class="sponsor-game__content">
+    <p>
+      <mat-toolbar class="sponsor-game__toolbar">
+        <mat-chip-list>
+          <mat-chip-list>
+            <mat-chip><mat-icon>timer</mat-icon> 0:00:00</mat-chip>
+          </mat-chip-list>
+        </mat-chip-list>
+
+        <img
+          src="https://cdn.cookielaw.org/logos/f95f67ef-e8ad-4274-9c69-04fd38042f86/30477475-b8a8-4e38-86c8-0e8e659c4bcb/ad174ce0-ba80-444e-8dea-b6337b570f2b/Kroger_Blue_on_Transparent_sm.png"
+          alt=""
+        />
+        <button mat-icon-button>
+          <mat-icon class="mat-18">help</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="mat-18">bar_chart</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="mat-18">pause_circle</mat-icon>
+        </button>
+      </mat-toolbar>
+    </p>
+    <div class="tile-wrapper">
+      <div
+      #tile
+      class="tile-card"
+      (click)="tile.classList.toggle('tile-card-active')"        
+        *ngFor="let item of [].constructor(16); let i = index"
+      >
+        <div  class="tile-card-inner">
+          <div class="tile-card-front">
+            <img
+              src="https://corporate.bestbuy.com/wp-content/uploads/2015/12/best-buy.png"
+              alt=""
+            />
+          </div>
+          <div class="tile-card-back">
+            <img
+              src="https://static.grainger.com/rp/s/is/image/Grainger/20PG24_AS01?hei=1072&wid=1072"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sponsor-game__leaderboard">
+    <mat-list>
+      <p matSubheader>Leaderboard</p>
+      <mat-list-item [ngClass]="{'gold' : i == 0, 'silver' : i == 1, 'bronze' : i == 2}"  *ngFor="let item of [].constructor(20); let i = index">
+        <p matLine>{{i + 1}} <span>Chris Jones</span></p>
+
+        <p class="leaderboard-time">{{Math.floor(i + 20)}}</p>
+
+        <span></span>
+      </mat-list-item>
+      <mat-list-item>
+        <p matLine>Chris Northcutt</p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

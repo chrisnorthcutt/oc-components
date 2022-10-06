@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BuilderBlock } from '@builder.io/angular';
 
 @Component({
   selector: 'app-button-toggle',
@@ -13,3 +14,11 @@ export class ButtonToggleComponent implements OnInit {
   }
 
 }
+
+BuilderBlock({
+  tag: 'app-button-toggle', // <-- use the component selector here
+  name: 'Button Toggle',
+  inputs: [
+
+  ],
+})(ButtonToggleComponent);

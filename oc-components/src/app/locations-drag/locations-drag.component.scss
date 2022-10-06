@@ -50,8 +50,8 @@
     }
 
     &:active {
-        background: mat.get-color-from-palette(base.$oc-teal, 50);
-        color: mat.get-color-from-palette(base.$oc-teal, 900);
+        background: mat.get-color-from-palette(base.$mat-accent, 'lighter');
+        color: mat.get-color-from-palette(base.$mat-accent, 'darker');
        
     }
 
@@ -77,12 +77,12 @@
   }
 
   .cdk-drop-list-dragging {
-    border: 1px dashed mat.get-color-from-palette(base.$oc-teal, 500);
+    border: 1px dashed mat.get-color-from-palette(base.$mat-accent, 'main');
   }
 
   .cdk-drag-handle {
-    background: mat.get-color-from-palette(base.$oc-teal, 50);
-    color: mat.get-color-from-palette(base.$oc-teal, 900);
+    background: mat.get-color-from-palette(base.$mat-accent, 'lighter');
+    color: mat.get-color-from-palette(base.$mat-accent, 'darker');
    
 }
   
@@ -106,13 +106,13 @@
   }
   
   .example-custom-placeholder {
-    background: mat.get-color-from-palette(base.$oc-teal, 50);
-    border: dotted 1px mat.get-color-from-palette(base.$oc-teal, 500);
+    background: mat.get-color-from-palette(base.$mat-accent, 'lighter');
+    border: dotted 1px mat.get-color-from-palette(base.$mat-accent, 'main');
     min-height: 60px;
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
     display: flex;
     padding-left: 16px;
-    color:mat.get-color-from-palette(base.$oc-teal, 900);
+    color:mat.get-color-from-palette(base.$mat-accent, 'darker');
     align-items: center;
   }
 

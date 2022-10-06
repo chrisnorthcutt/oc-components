@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BuilderBlock } from '@builder.io/angular';
 export interface PeriodicElement {
   property: string;
   tag: string;
@@ -22,12 +23,32 @@ export class ListComponent implements OnInit {
   name: 'list' | undefined;
   displayedColumns: string[] = ['property', 'tag', 'usage'];
   dataSource = ELEMENT_DATA;
+  @Input() label:string = "hello"
+ counter(i: number) {
+    return new Array(i);
+}
+@Input() listCount:number = 1
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.name = params['name'];
     });
   }
-  constructor(  private route: ActivatedRoute,) { }
+  constructor(  private route: ActivatedRoute,) { 
+    
+  }
 
 
 }
+BuilderBlock({
+  tag: 'app-list', // <-- use the component selector here
+  name: 'List',
+  inputs: [ {
+    name: 'label',
+    type: 'string'
+    
+  },
+  {
+    name: 'listCount',
+    type: 'number'
+  }]
+})(ListComponent);

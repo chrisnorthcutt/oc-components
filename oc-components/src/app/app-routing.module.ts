@@ -8,6 +8,7 @@ import { TemplateListComponent } from './template-list/template-list.component';
 import { LocationsDragComponent } from './locations-drag/locations-drag.component';
 import { TemplateViewComponent } from './template-view/template-view.component';
 import { LocationsChecklistComponent } from './locations-checklist/locations-checklist.component';
+import { EventOnboardingComponent } from './event-onboarding/event-onboarding.component';
 
 const routes: Routes = [
   { path: 'button', component: ButtonComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'locations-drag', component: LocationsDragComponent },
   { path: 'locations-checklist', component: LocationsChecklistComponent },
   { path: 'template', component: TemplateViewComponent },
+  { path: 'event-onboarding', component: EventOnboardingComponent },
 ];
 
 @NgModule({

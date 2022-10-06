@@ -1,0 +1,107 @@
+
+.tile-card {
+
+
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.tile-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+ 
+}
+mat-toolbar.mat-toolbar.sponsor-game__toolbar.mat-toolbar-single-row {
+  padding: 8px 0;
+}
+
+/* Do an horizontal tile when you move the mouse over the tile box container */
+.tile-card.tile-card-active .tile-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.tile-card-front,
+.tile-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  background: white;
+  border-radius: 6px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Style the front side (fallback if image is missing) */
+
+.sponsor-game__wrapper {
+  width: 100%;
+  max-width: 800px;
+  height: 640px;
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  background: url("https://c4.wallpaperflare.com/wallpaper/246/739/689/digital-digital-art-artwork-illustration-abstract-hd-wallpaper-preview.jpg");
+  background-size: cover;
+}
+
+.sponsor-game__content {
+  height: 100%;
+  width: 100%;
+
+}
+
+
+.gold,.silver,.bronze {
+  margin-bottom: 4px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.gold {
+  background: linear-gradient(90deg, #FFD75A 0%, #FFEA83 100%);
+
+}
+
+
+.silver {
+  background: linear-gradient(90deg, #D6D6C7 0%, rgba(224, 223, 210, 0.75) 100%);
+
+}
+
+.bronze {
+  background: linear-gradient(91.5deg, #F7A770 0%, rgba(248, 177, 128, 0.75) 100%);
+
+}
+
+.sponsor-game__leaderboard {
+  background: white;
+  overflow: auto;
+  padding: 0 8px
+}
+
+.leaderboard-time {
+  color: rgba(0,0,0,.64);
+  margin: 0;
+}
+
+.tile-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 24px;
+  margin: 0 auto;
+  height: calc(100% - 132px);
+  max-width: 540px;
+}
+
+/* Style the back side */
+.tile-card-back {
+
+  transform: rotateY(180deg);
+}

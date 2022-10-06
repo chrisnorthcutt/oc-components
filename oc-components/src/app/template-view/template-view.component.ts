@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { EmailEditorComponent } from 'angular-email-editor';
 
 
 
@@ -50,9 +49,6 @@ export class TemplateViewComponent implements OnInit {
     
   }
 
-  @ViewChild(EmailEditorComponent)
-
-  private emailEditor: EmailEditorComponent = new EmailEditorComponent;
 
   // called when the editor is created
   editorLoaded() {
@@ -66,11 +62,6 @@ export class TemplateViewComponent implements OnInit {
     console.log('editorReady');
   }
 
-  exportHtml() {
-    this.emailEditor.editor.exportHtml((data: any) =>
-      console.log('exportHtml', data)
-    );
-  }
     
   }
   

@@ -18,7 +18,7 @@
   background-color: white;
 }
 a.mat-list-item.mat-focus-indicator.button.activebutton {
-  background-color: mat.get-color-from-palette(base.$oc-teal, 50);
+  background-color: mat.get-color-from-palette(base.$mat-accent, 'main');
 
-  color: mat.get-color-from-palette(base.$oc-teal, 900) !important;
+  color: mat.get-color-from-palette(base.$mat-accent, 'darker')!important; 
 }
